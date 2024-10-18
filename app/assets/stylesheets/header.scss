@@ -1,0 +1,32 @@
+.header {
+  width: 375px;
+  height: 44px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left {
+  width: 54px;
+  height: 21px;
+  margin-top: 12px;
+  margin-left: 21px;
+}
+
+.header-right {
+  margin-right: 15px;
+  line-height: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.mobile-img {
+  margin-right: 5px;
+}
+
+.wifi-img {
+  margin-right: 5px;
+}

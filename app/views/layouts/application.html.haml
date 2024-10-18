@@ -8,4 +8,19 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header.header
+      .header-left
+        = image_tag 'Time Style.png'
+      %nav.header-right
+        %ul.nav-list
+          %li
+            = image_tag 'Mobile Signal.png', class: 'mobile-img'
+          %li
+            = image_tag 'Wifi.png', class: 'wifi-img'
+          %li
+            = image_tag 'Battery.png', class: 'battery-img'
+    - if notice
+      %p.notice= notice
+    - if alert
+      %p.alert= alert
     = yield

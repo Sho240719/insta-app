@@ -1,0 +1,54 @@
+@import 'devise';
+@import 'header';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-family: Poppins Medium;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.notice,
+.alert {
+  // position: absolute;
+  position: fixed;
+  top: 20px; /* 上から20pxの位置に表示 */
+  left: 50%;
+  transform: translateX(-50%); /* 真ん中に表示 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000; /* 他の要素の上に表示されるように */
+  width: auto;
+  max-width: 90%; /* 必要に応じて幅を調整 */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつけて浮かせた感じに */
+}
+
+.notice {
+  background-color: #dff0d8; /* 淡い緑 */
+  color: #3c763d;
+  border: 1px solid #3c763d;
+}
+
+.alert {
+  background-color: #f2dede; /* 淡い赤 */
+  color: #a94442;
+  border: 1px solid #a94442;
+}
+
+.home-indi {
+  margin-top: 104px;
+}
