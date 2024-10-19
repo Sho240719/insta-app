@@ -1,6 +1,9 @@
 .rectangle-png {
   width: 375px;
   height: 298px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 .account-name-wrapper,
@@ -17,11 +20,11 @@
 }
 
 .account-name-wrapper {
-  margin-top: 35px;
+  margin-top: 289px;
 }
 
 .email-wrapper-in {
-  margin-top: 35px;
+  margin-top: 289px;
 }
 
 .email-wrapper-up {
