@@ -1,5 +1,6 @@
 @import 'devise';
 @import 'header';
+@import 'profile';
 
 body {
   margin: 0;
@@ -52,4 +53,8 @@ input {
 
 .home-indi {
   margin-top: 104px;
+}
+
+.container {
+  padding: 0 16px;
 }
