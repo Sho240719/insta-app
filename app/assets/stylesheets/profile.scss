@@ -9,3 +9,48 @@
   height: 12px;
 }
 
+.top-right {
+  line-height: 18.75px;
+  color: rgba(51, 58, 66, 1);
+}
+
+
+.top-wrapper {
+  margin-top: 32px;
+}
+
+.account-img {
+  width: 84px;
+  height: 84px;
+  border: 1px solid rgba(233, 30, 99, 1);
+  border-radius: 40px;
+  margin: 0 auto;
+}
+
+.account-icon {
+  width: 76.88px;
+  height: 76.88px;
+  margin-top: 3.56px;
+  margin-left: 3.56px;
+}
+
+.account-info {
+  width: 241px;
+  display: flex;
+  justify-content: space-between;
+  margin: 43px auto;
+}
+
+.info-counts {
+  font-size: 16px;
+  line-height: 18.75px;
+  text-align: left;
+  color: rgba(51, 58, 66, 1);
+}
+
+.info {
+  font-size: 14px;
+  line-height: 16.41px;
+  text-align: left;
+  color: rgba(158, 158, 158, 1);
+}

@@ -4,3 +4,16 @@
       = image_tag 'Tabs.png', class: 'back-icon'
     .top-right
       = current_user.account_name
+  .top-wrapper
+    .account-img
+      = image_tag 'default-avatar.png', class: 'account-icon'
+    .account-info
+      .info-wrapper
+        %P.info-counts 44
+        %P.info Posts
+      .info-wrapper
+        %P.info-counts 110
+        %P.info Followers
+      .info-wrapper
+        %P.info-counts 44
+        %P.info Followings
