@@ -32,6 +32,7 @@
   height: 76.88px;
   margin-top: 3.56px;
   margin-left: 3.56px;
+  border-radius: 40px;
 }
 
 .account-info {
@@ -44,7 +45,7 @@
 .info-counts {
   font-size: 16px;
   line-height: 18.75px;
-  text-align: left;
+  text-align: center;
   color: rgba(51, 58, 66, 1);
 }
 
@@ -53,4 +54,8 @@
   line-height: 16.41px;
   text-align: left;
   color: rgba(158, 158, 158, 1);
+}
+
+.content-img {
+  margin-bottom: 68px;
 }
