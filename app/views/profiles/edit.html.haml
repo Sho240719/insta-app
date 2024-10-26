@@ -1,0 +1,3 @@
+= form_with model: @profile, url: profile_path, method: 'put', locale: true do |f|
+  = f.file_field :avatar
+  = f.submit "画像を変更", class: 'btn'
