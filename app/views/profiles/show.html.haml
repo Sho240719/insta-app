@@ -6,7 +6,8 @@
       = current_user.account_name
   .top-wrapper
     .account-img
-      = image_tag 'default-avatar.png', class: 'account-icon'
+      = link_to edit_profile_path do
+        = image_tag 'default-avatar.png', class: 'account-icon'
     .account-info
       .info-wrapper
         %P.info-counts 44

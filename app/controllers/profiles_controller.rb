@@ -10,6 +10,6 @@ class ProfilesController < ApplicationController
 
   private
   def set_profile
-    @profile = profile || build_profile
+    @profile = current_user.profile || current_user.build_profile
   end
 end
