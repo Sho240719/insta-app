@@ -1,0 +1,24 @@
+.container
+  .top-bar
+    .top-left
+      = image_tag 'Tabs.png', class: 'back-icon'
+    .top-right
+      = current_user.account_name
+  .top-wrapper
+    .account-img
+      = link_to edit_profile_path do
+        = image_tag current_user.avatar_image, class: 'account-icon'
+    .account-info
+      .info-wrapper
+        %P.info-counts 44
+        %P.info Posts
+      .info-wrapper
+        %P.info-counts 110
+        %P.info Followers
+      .info-wrapper
+        %P.info-counts 44
+        %P.info Followings
+  .content-wrapper
+    = image_tag 'Group 8.png', class: 'content-img'
+%footer.footer
+  = image_tag 'Home Indicator.png'

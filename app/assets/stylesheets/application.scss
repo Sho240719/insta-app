@@ -1,11 +1,14 @@
 @import 'devise';
 @import 'header';
+@import 'profile';
+@import 'footer';
 
 body {
   margin: 0;
   padding: 0;
   font-size: 1em;
   font-family: Poppins Medium;
+  position: relative;
 }
 
 a {
@@ -51,4 +54,8 @@ input {
 
 .home-indi {
   margin-top: 104px;
+}
+
+.container {
+  padding: 0 16px;
 }
