@@ -39,6 +39,7 @@ module.exports = function(api) {
     plugins: [
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-transform-for-of',
       isTestEnv && 'babel-plugin-dynamic-import-node',
       '@babel/plugin-transform-destructuring',
       [
@@ -54,11 +55,21 @@ module.exports = function(api) {
         }
       ],
       [
+        '@babel/plugin-proposal-private-methods',
+        {
+          loose: true
+        }
+      ],
+      [
+        '@babel/plugin-proposal-private-property-in-object',
+        {
+          loose: true
+        }
+      ],
+      [
         '@babel/plugin-transform-runtime',
         {
-          helpers: false,
-          regenerator: true,
-          corejs: false
+          helpers: false
         }
       ],
       [

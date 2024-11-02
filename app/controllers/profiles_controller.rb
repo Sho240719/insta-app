@@ -10,9 +10,9 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path(@profile), notice: 'プロフィール画像を変更しました'
+      render json: { message: "Profile image updated successfully" }, status: :ok
     else
-      render :edit
+      render json: { error: "Failed to update profile image" }, status: :unprocessable_entity
     end
   end
 
