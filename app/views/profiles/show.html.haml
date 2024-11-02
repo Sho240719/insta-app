@@ -6,8 +6,8 @@
       = current_user.account_name
   .top-wrapper
     .account-img
-      = link_to edit_profile_path do
-        = image_tag current_user.avatar_image, class: 'account-icon'
+      = image_tag current_user.avatar_image, class: 'account-icon'
+      %input.file-upload.hidden{type: "file"}
     .account-info
       .info-wrapper
         %P.info-counts 44
