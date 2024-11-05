@@ -2,15 +2,16 @@
   margin-bottom: 39px;
 }
 
-.posts-info {
+.post-info {
   display: flex;
 }
 
-.posts-img-info {
+.post-img-info {
   position: relative;
+  margin-bottom: 11px;
 }
 
-.posts-account-img {
+.post-account-img {
   width: 30px;
   height: 30px;
   border-radius: 40px;
@@ -26,13 +27,28 @@
   left: 20px;
 }
 
-.posts-name {
+.post-name {
   font-size: 14px;
   line-height: 16.41px;
 }
 
-.posts-time {
+.post-time {
   font-size: 12px;
   line-height: 18px;
   color: rgba(158, 158, 158, 1);
+}
+
+.post-contents {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.content-left {
+  margin-right: 5px;
+}
+
+.content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
