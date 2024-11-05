@@ -38,17 +38,23 @@
   color: rgba(158, 158, 158, 1);
 }
 
-.post-contents {
+.post-img {
   display: flex;
   margin-bottom: 12px;
 }
 
-.content-left {
+.post-img-left {
   margin-right: 5px;
 }
 
-.content-right {
+.post-img-right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.post-intaraction {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 14px;
 }
