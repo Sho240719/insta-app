@@ -1,0 +1,69 @@
+.photo-img {
+  margin-bottom: 39px;
+}
+
+.post-info {
+  display: flex;
+}
+
+.post-img-info {
+  position: relative;
+  margin-bottom: 11px;
+}
+
+.post-account-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 40px;
+}
+
+.online-mark {
+  width: 6px;
+  height: 6px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  background-color: rgba(0, 255, 102, 1);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.post-name {
+  font-size: 14px;
+  line-height: 16.41px;
+}
+
+.post-time {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(158, 158, 158, 1);
+}
+
+.post-img {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.post-img-left {
+  margin-right: 5px;
+}
+
+.post-img-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-intaraction {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 14px;
+}
+
+.post-content {
+  margin-bottom: 36px;
+}
+
+.post-content p {
+  font-size: 12px;
+  line-height: 20px;
+}

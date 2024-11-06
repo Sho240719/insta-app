@@ -10,15 +10,15 @@
   %body
     %header.header
       .header-left
-        = image_tag 'Time Style.png'
+        = image_tag(content_for?(:header_time) ? yield(:header_time) : 'black-time.png')
       %nav.header-right
         %ul.nav-list
           %li
-            = image_tag 'Mobile Signal.png', class: 'mobile-img'
+            = image_tag(content_for?(:header_mobile) ? yield(:header_mobile) : 'black-mobile.png', class: 'mobile-img')
           %li
-            = image_tag 'Wifi.png', class: 'wifi-img'
+            = image_tag(content_for?(:header_wifi) ? yield(:header_wifi) : 'black-wifi.png', class: 'wifi-img')
           %li
-            = image_tag 'Battery.png', class: 'battery-img'
+            = image_tag(content_for?(:header_battery) ? yield(:header_battery) : 'black-battery.png', class: 'battery-img')
     - if notice
       %p.notice= notice
     - if alert
