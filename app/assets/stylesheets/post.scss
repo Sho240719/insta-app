@@ -3,6 +3,10 @@
   margin-bottom: 39px;
 }
 
+.post-wrapper {
+  margin-bottom: 36px;
+}
+
 .post-info {
   display: flex;
 }
@@ -39,6 +43,15 @@
   color: rgba(158, 158, 158, 1);
 }
 
+.post-content {
+  margin-bottom: 10px;
+}
+
+.post-content p {
+  font-size: 12px;
+  line-height: 20px;
+}
+
 .post-img {
   display: flex;
   margin-bottom: 12px;
@@ -55,18 +68,8 @@
 }
 
 .post-intaraction {
-  margin-bottom: 8px;
   display: flex;
   gap: 14px;
-}
-
-.post-content {
-  margin-bottom: 36px;
-}
-
-.post-content p {
-  font-size: 12px;
-  line-height: 20px;
 }
 
 // new
