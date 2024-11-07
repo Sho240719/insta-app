@@ -12,5 +12,5 @@
   .post-form
     = form_with model: @post, local: true do |f|
       = f.text_area :content, class: 'post-form-content', placeholder: "What's on your mind?", autofocus: true
-      = f.file_field :image
+      = f.file_field :images, multiple: true
       = f.submit "POST", class: 'btn post-form-btn'
