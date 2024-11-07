@@ -1,5 +1,6 @@
 .container
-  = image_tag 'photo-camera.png', class: 'photo-img'
+  = link_to new_post_path do
+    = image_tag 'photo-camera.png', class: 'photo-img'
 
   .post-wrapper
     .post-info

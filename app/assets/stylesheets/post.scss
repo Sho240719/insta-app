@@ -1,3 +1,4 @@
+// index
 .photo-img {
   margin-bottom: 39px;
 }
@@ -66,4 +67,39 @@
 .post-content p {
   font-size: 12px;
   line-height: 20px;
+}
+
+// new
+.post-form-menu {
+  height: 26px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-form-user-info {
+  display: flex;
+  margin-top: 41px;
+  margin-bottom: 30px;
+}
+
+.post-form-user-img {
+  width: 40px;
+  height: 40px;
+}
+
+.post-form-user-name {
+  height: 40px;
+  line-height: 40px;
+  margin-left: 18px;
+}
+
+.post-form-content {
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  border: none;
+  border-bottom: 1px solid;
+  resize: none;
+  margin-bottom: 24px;
 }
