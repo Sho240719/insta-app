@@ -1,0 +1,17 @@
+.container
+  .post-form-menu
+    = link_to root_path do
+      %p Cancel
+    %p Status
+    %p Post
+
+  .post-form-user-info
+    = image_tag current_user.avatar_image, class: 'post-form-user-img'
+    .post-form-user-name
+      = current_user.account_name
+
+  .post-form
+    = form_with model: @post, local: true do |f|
+      = f.text_area :content, class: 'post-form-content', placeholder: "What's on your mind?", autofocus: true
+      = f.file_field :images, multiple: true
+      = f.submit "POST", class: 'btn post-form-btn'

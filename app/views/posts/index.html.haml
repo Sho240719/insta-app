@@ -1,27 +1,31 @@
 .container
-  = image_tag 'photo-camera.png', class: 'photo-img'
+  = link_to new_post_path do
+    = image_tag 'photo-camera.png', class: 'photo-img'
 
-  .post-wrapper
-    .post-info
-      .post-img-info
-        = image_tag 'default-avatar', class: 'post-account-img'
-        .online-mark
-      .post-text-info
-        %P.post-name no name
-        %p.post-time no time
-    .post-img
-      .post-img-left
-        = image_tag 'contents-img1'
-      .post-img-right
-        = image_tag 'contents-img2'
-        = image_tag 'contents-img3'
-    .post-intaraction
-      .post-like
-        = image_tag 'like-active.png'
-      .post-comment
-        = image_tag 'comment.png'
-      .post-share
-        = image_tag 'share.png'
-    .post-content
-      %p Jasmine and 12,000 other liked your post
-      %p Jmax_21  Summer holiday :3
+  - @posts.each do |post|
+    .post-wrapper
+      .post-info
+        .post-img-info
+          = image_tag post.user.avatar_image, class: 'post-account-img'
+          .online-mark
+        .post-text-info
+          %p.post-name= post.user.account_name
+          %p.post-time= display_time(post.created_at)
+      .post-content
+        = post.content
+      .post-img
+        - if post.images.attached?
+          .post-img-left-wrapper
+            = image_tag post.images[0], class: 'post-img-left'
+          .post-img-right-wrapper
+            - 2.times do |i|
+              - if post.images[i + 1].present?
+                = image_tag post.images[i + 1], class: 'post-img-right'
+
+      .post-intaraction
+        .post-like
+          = image_tag 'like-active.png'
+        .post-comment
+          = image_tag 'comment.png'
+        .post-share
+          = image_tag 'share.png'

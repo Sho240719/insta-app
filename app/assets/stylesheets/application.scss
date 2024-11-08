@@ -4,6 +4,7 @@
 @import 'profile';
 @import 'post';
 @import 'footer';
+@import 'button';
 
 * {
   margin: 0;
@@ -66,4 +67,8 @@ input {
 
 .container {
   padding: 0 16px;
+}
+
+textarea::placeholder {
+  color: rgba(189, 189, 189, 1);
 }
