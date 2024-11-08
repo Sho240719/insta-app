@@ -10,7 +10,7 @@
           .online-mark
         .post-text-info
           %p.post-name= post.user.account_name
-          %p.post-time= post.updated_at
+          %p.post-time= display_time(post.created_at)
       .post-content
         = post.content
       .post-img
