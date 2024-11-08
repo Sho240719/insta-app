@@ -6,19 +6,22 @@
     .post-wrapper
       .post-info
         .post-img-info
-          = image_tag current_user.avatar_image, class: 'post-account-img'
+          = image_tag post.user.avatar_image, class: 'post-account-img'
           .online-mark
         .post-text-info
-          %p.post-name= current_user.account_name
+          %p.post-name= post.user.account_name
           %p.post-time= post.updated_at
       .post-content
         = post.content
       .post-img
-        .post-img-left
-          = image_tag 'contents-img1'
-        .post-img-right
-          = image_tag 'contents-img2'
-          = image_tag 'contents-img3'
+        - if post.images.attached?
+          .post-img-left-wrapper
+            = image_tag post.images[0], class: 'post-img-left'
+          .post-img-right-wrapper
+            - 2.times do |i|
+              - if post.images[i + 1].present?
+                = image_tag post.images[i + 1], class: 'post-img-right'
+
       .post-intaraction
         .post-like
           = image_tag 'like-active.png'

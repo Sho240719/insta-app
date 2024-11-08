@@ -57,14 +57,24 @@
   margin-bottom: 12px;
 }
 
-.post-img-left {
+.post-img-left-wrapper {
   margin-right: 5px;
 }
 
-.post-img-right {
+.post-img-right-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.post-img-left {
+  width: 198px;
+  height: 225px;
+}
+
+.post-img-right {
+  width: 138px;
+  height: 109px;
 }
 
 .post-intaraction {
