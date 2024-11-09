@@ -28,4 +28,6 @@
         .post-comment
           = image_tag 'comment.png'
         .post-share
-          = image_tag 'share.png'
+          = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
+            target: "_blank", rel: "noopener" do
+            = image_tag 'share.png'
