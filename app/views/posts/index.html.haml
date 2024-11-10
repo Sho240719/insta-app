@@ -24,8 +24,11 @@
       - if user_signed_in?
         .post-intaraction
           .post-like
-            = link_to post_like_path(post), data: { method: 'post' } do
+            - if post.likes.present?
               = image_tag 'like-active.png'
+            - else
+              = link_to post_like_path(post), data: { method: 'post' } do
+                = image_tag 'like-inactive.png'
           .post-comment
             = image_tag 'comment.png'
           .post-share
