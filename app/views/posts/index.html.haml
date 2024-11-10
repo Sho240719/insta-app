@@ -25,7 +25,8 @@
         .post-intaraction
           .post-like
             - if post.likes.present?
-              = image_tag 'like-active.png'
+              = link_to post_like_path(post), data: { method: 'delete' } do
+                = image_tag 'like-active.png'
             - else
               = link_to post_like_path(post), data: { method: 'post' } do
                 = image_tag 'like-inactive.png'
