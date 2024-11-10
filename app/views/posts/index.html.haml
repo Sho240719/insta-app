@@ -21,13 +21,14 @@
             - 2.times do |i|
               - if post.images[i + 1].present?
                 = image_tag post.images[i + 1], class: 'post-img-right'
-
-      .post-intaraction
-        .post-like
-          = image_tag 'like-active.png'
-        .post-comment
-          = image_tag 'comment.png'
-        .post-share
-          = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
-            target: "_blank", rel: "noopener" do
-            = image_tag 'share.png'
+      - if user_signed_in?
+        .post-intaraction
+          .post-like
+            = link_to post_like_path(post), data: { method: 'post' } do
+              = image_tag 'like-active.png'
+          .post-comment
+            = image_tag 'comment.png'
+          .post-share
+            = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
+              target: "_blank", rel: "noopener" do
+              = image_tag 'share.png'
