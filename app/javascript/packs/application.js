@@ -19,7 +19,18 @@ require("channels")
 import $ from 'jquery'
 import axios from 'axios'
 
+// いいね表示を切り替えるfunctionを定義
+const hundleHeartDisplay = (hasliked) => {
+  if (hasLiked) {
+    $('.active-heart').removeClass('hidden')
+  } else {
+    $('.inactive-heart').removeClass('hidden')
+  }
+}
+
+
 document.addEventListener('turbolinks:load', () => {
+  // プロフィール画像を変更
   $('.account-icon').on('click', () => {
     $('.file-upload').toggleClass('hidden')
   })
@@ -51,16 +62,13 @@ document.addEventListener('turbolinks:load', () => {
   });
 
 
-  // JSでいいねの表示を切り替える
+  // JSでいいね機能を実装
   const dataset = $('.post-show').data()
   const postId = dataset.postId
+
   axios.get(`/posts/${postId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
-      if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
-      } else {
-        $('.inactive-heart').removeClass('hidden')
-      }
+      hundleHeartDisplay(hasLiked)
     })
 })
