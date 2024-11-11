@@ -49,4 +49,18 @@ document.addEventListener('turbolinks:load', () => {
       });
     }
   });
+
+
+  // JSでいいねの表示を切り替える
+  const dataset = $('.post-show').data()
+  const postId = dataset.postId
+  axios.get(`/posts/${postId}/like`)
+    .then((response) => {
+      const hasLiked = response.data.hasLiked
+      if (hasLiked) {
+        $('.active-heart').removeClass('hidden')
+      } else {
+        $('.inactive-heart').removeClass('hidden')
+      }
+    })
 })

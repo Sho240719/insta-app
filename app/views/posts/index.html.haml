@@ -3,7 +3,7 @@
     = image_tag 'photo-camera.png', class: 'photo-img'
 
   - @posts.each do |post|
-    .post-wrapper
+    .post-wrapper.post-show{data: {post_id: post.id}}
       .post-info
         .post-img-info
           = image_tag post.user.avatar_image, class: 'post-account-img'
@@ -23,13 +23,12 @@
                 = image_tag post.images[i + 1], class: 'post-img-right'
       - if user_signed_in?
         .post-intaraction
-          .post-like
-            - if post.likes.present?
-              = link_to post_like_path(post), data: { method: 'delete' } do
-                = image_tag 'like-active.png'
-            - else
-              = link_to post_like_path(post), data: { method: 'post' } do
-                = image_tag 'like-inactive.png'
+          .post-like.hidden.active-heart
+            = link_to post_like_path(post), data: { method: 'delete' } do
+              = image_tag 'like-active.png'
+          .post-like.hidden.inactive-heart
+            = link_to post_like_path(post), data: { method: 'post' } do
+              = image_tag 'like-inactive.png'
           .post-comment
             = image_tag 'comment.png'
           .post-share
