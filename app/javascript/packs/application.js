@@ -23,7 +23,7 @@ import { csrfToken } from 'rails-ujs'
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 // いいね表示を切り替えるfunctionを定義
-const hundleHeartDisplay = (hasLiked) => {
+const handleHeartDisplay = (hasLiked) => {
   if (hasLiked) {
     $('.active-heart').removeClass('hidden')
   } else {
@@ -72,7 +72,7 @@ document.addEventListener('turbolinks:load', () => {
   axios.get(`/posts/${postId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
-      hundleHeartDisplay(hasLiked)
+      handleHeartDisplay(hasLiked)
     })
 
   // いいねの表示を切り替え
@@ -80,7 +80,10 @@ document.addEventListener('turbolinks:load', () => {
   $('.inactive-heart').on('click', () => {
     axios.post(`/posts/${postId}/like`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok') {
+          $('.active-heart').removeClass('hidden')
+          $('.inactive-heart').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('Error')
@@ -92,7 +95,10 @@ document.addEventListener('turbolinks:load', () => {
   $('.active-heart').on('click', () => {
     axios.delete(`/posts/${postId}/like`)
       .then((response) => {
-        console.log(response)
+        if (response.data.status === 'ok') {
+          $('.inactive-heart').removeClass('hidden')
+          $('.active-heart').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('Error')
