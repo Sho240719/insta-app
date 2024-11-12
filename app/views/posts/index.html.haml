@@ -24,11 +24,9 @@
       - if user_signed_in?
         .post-intaraction
           .post-like.hidden.active-heart
-            = link_to post_like_path(post), data: { method: 'delete' } do
-              = image_tag 'like-active.png'
+            = image_tag 'like-active.png'
           .post-like.hidden.inactive-heart
-            = link_to post_like_path(post), data: { method: 'post' } do
-              = image_tag 'like-inactive.png'
+            = image_tag 'like-inactive.png'
           .post-comment
             = image_tag 'comment.png'
           .post-share
