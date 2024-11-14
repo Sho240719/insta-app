@@ -3,7 +3,7 @@
     = image_tag 'photo-camera.png', class: 'photo-img'
 
   - @posts.each do |post|
-    .post-wrapper
+    .post-wrapper.post-show{data: {post_id: post.id}}
       .post-info
         .post-img-info
           = image_tag post.user.avatar_image, class: 'post-account-img'
@@ -21,13 +21,15 @@
             - 2.times do |i|
               - if post.images[i + 1].present?
                 = image_tag post.images[i + 1], class: 'post-img-right'
-
-      .post-intaraction
-        .post-like
-          = image_tag 'like-active.png'
-        .post-comment
-          = image_tag 'comment.png'
-        .post-share
-          = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
-            target: "_blank", rel: "noopener" do
-            = image_tag 'share.png'
+      - if user_signed_in?
+        .post-intaraction
+          .post-like.hidden.active-heart{data: {post_id: post.id}}
+            = image_tag 'like-active.png'
+          .post-like.hidden.inactive-heart{data: {post_id: post.id}}
+            = image_tag 'like-inactive.png'
+          .post-comment
+            = image_tag 'comment.png'
+          .post-share
+            = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
+              target: "_blank", rel: "noopener" do
+              = image_tag 'share.png'
