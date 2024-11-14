@@ -23,9 +23,9 @@
                 = image_tag post.images[i + 1], class: 'post-img-right'
       - if user_signed_in?
         .post-intaraction
-          .post-like.hidden.active-heart
+          .post-like.hidden.active-heart{data: {post_id: post.id}}
             = image_tag 'like-active.png'
-          .post-like.hidden.inactive-heart
+          .post-like.hidden.inactive-heart{data: {post_id: post.id}}
             = image_tag 'like-inactive.png'
           .post-comment
             = image_tag 'comment.png'
