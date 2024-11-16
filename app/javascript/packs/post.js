@@ -4,7 +4,24 @@ import { csrfToken } from 'rails-ujs';
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
+
+  // コメント一覧を表示
+  $('.post-show').each(function() {
+    const postId = $(this).data('post-id');
+    axios.get(`/posts/${postId}/comments`)
+      .then((response) => {
+        const comments = response.data
+        comments.forEach((comment) => {
+          $('.comments-list').append(
+            // コメントのみ表示
+            `<div class="comment-body"><p>${comment.content}</p></div>`
+          )
+        })
+      })
+  })
+
+
 // いいねの表示を表示、切り替える関数
   function handleHeartDisplay(postId, hasLiked) {
     if (hasLiked) {
