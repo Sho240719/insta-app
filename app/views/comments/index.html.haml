@@ -1,4 +1,4 @@
-.container
+.container.comment-show{data: {post_id: @post.id}}
   .top-bar
     .top-left
       = image_tag 'back-tab.png', class: 'back-icon'
@@ -14,5 +14,5 @@
       コメントを追加
     .comment-form-textarea.hidden
       = text_area_tag :comment_content, nil, class: 'comment-textarea'
-      .btn-secondary
+      .btn-secondary.add-comment-button
         コメントを追加

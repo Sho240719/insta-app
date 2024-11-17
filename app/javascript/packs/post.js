@@ -6,20 +6,39 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const postId = $('.comment-show').data('post-id')
+
   // コメント一覧を表示
-  $('.post-show').each(function() {
-    const postId = $(this).data('post-id');
-    axios.get(`/posts/${postId}/comments`)
-      .then((response) => {
-        const comments = response.data
-        comments.forEach((comment) => {
+  axios.get(`/posts/${postId}/comments`)
+    .then((response) => {
+      const comments = response.data
+      comments.forEach((comment) => {
+        $('.comments-list').append(
+          // コメントのみ表示
+          `<div class="comment-body"><p>${comment.content}</p></div>`
+        )
+      });
+    });
+
+  // コメントを投稿
+  $('.add-comment-button').on('click', () => {
+    const content = $('#comment_content').val();
+    if (!content) {
+      window.alert('コメントを入力してください');
+    } else {
+      axios.post(`/posts/${postId}/comments`, {
+        comment: {content: content}
+      })
+        .then((response) => {
+          const comment = response.data;
           $('.comments-list').append(
             // コメントのみ表示
             `<div class="comment-body"><p>${comment.content}</p></div>`
           )
-        })
-      })
-  })
+          $('#comment_content').val('');
+        });
+    };
+  });
 
   // コメントを追加クリックでフォームを表示
   $('.show-comment-form').on('click', () => {
