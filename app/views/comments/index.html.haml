@@ -5,12 +5,14 @@
     .top-right
       %p Comment
   .comments-list
-    .comment
-      .comment-author
-        = Faker::Name.name
-      .comment-body
-        = Faker::Lorem.paragraph_by_chars(number: 100)
+    .comment-author
+      = Faker::Name.name
+    .comment-body
+      = Faker::Lorem.paragraph_by_chars(number: 100)
   .comment-form
-    = image_tag 'comment-form.png', class: 'comment-input'
-    = image_tag 'comment.png', class: 'comment-mark'
-
+    .btn-secondary.show-comment-form
+      コメントを追加
+    .comment-form-textarea.hidden
+      = text_area_tag :comment_content, nil, class: 'comment-textarea'
+      .btn-secondary
+        コメントを追加
