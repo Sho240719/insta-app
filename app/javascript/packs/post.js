@@ -21,8 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
       })
   })
 
+  // コメントを追加クリックでフォームを表示
+  $('.show-comment-form').on('click', () => {
+    $('.show-comment-form').addClass('hidden');
+    $('.comment-form-textarea').removeClass('hidden');
+  })
 
-// いいねの表示を表示、切り替える関数
+
+  // いいねの表示を表示、切り替える関数
   function handleHeartDisplay(postId, hasLiked) {
     if (hasLiked) {
       $(`.active-heart[data-post-id=${postId}]`).removeClass('hidden');
