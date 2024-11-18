@@ -24,3 +24,4 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
 import './profile';
 import './post';
+import './comment';
