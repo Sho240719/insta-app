@@ -3,11 +3,13 @@ class CommentsController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
-    @comments = @post.comments
+    comments = @post.comments.includes(:user)
 
     respond_to do |format|
       format.html # デフォルトでindex.html.hamlを描画
-      format.json { render json: @comments } # JSONリクエストに応答
+      format.json {
+        render json: comments.as_json(include: { user: { only: [:id, :account_name] } })
+      } # JSONリクエストに応答
     end
   end
 

@@ -15,8 +15,10 @@ document.addEventListener('turbolinks:load', () => {
       const comments = response.data;
       comments.forEach((comment) => {
         $('.comments-list').append(
-        // コメントのみ表示
-        `<div class="comment-body"><p>${comment.content}</p></div>`
+          `<div class="comments-container">
+            <div class="comment-author"><p>${comment.user.account_name}</p></div>
+            <div class="comment-body"><p>${comment.content}</p></div>
+          </div>`
         );
       });
     });
