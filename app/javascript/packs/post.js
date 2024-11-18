@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const postId = $('.comment-show').data('post-id')
 
   // コメント一覧を表示
-  axios.get(`/posts/${postId}/comments`)
+  axios.get(`/posts/${postId}/comments.json`)
     .then((response) => {
       const comments = response.data
       comments.forEach((comment) => {

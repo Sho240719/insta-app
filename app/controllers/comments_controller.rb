@@ -3,8 +3,12 @@ class CommentsController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
-    comments = @post.comments
-    # render json: comments
+    @comments = @post.comments
+
+    respond_to do |format|
+      format.html # デフォルトでindex.html.hamlを描画
+      format.json { render json: @comments } # JSONリクエストに応答
+    end
   end
 
   def create
