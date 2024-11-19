@@ -5,23 +5,30 @@ import { csrfToken } from 'rails-ujs';
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
 document.addEventListener('turbolinks:load', () => {
+  // コメント機能に必要なpostIdを取得
   const postId = $('.comment-show').data('post-id');
 
-  $('.comments-list').empty();
-
-  // コメント一覧を取得して表示
-  axios.get(`/posts/${postId}/comments.json`)
-    .then((response) => {
-      const comments = response.data;
-      comments.forEach((comment) => {
-        $('.comments-list').append(
-          `<div class="comments-container">
-            <div class="comment-author"><p>${comment.user.account_name}</p></div>
-            <div class="comment-body"><p>${comment.content}</p></div>
-          </div>`
-        );
+  // 現在のページURLを取得
+  const path = window.location.pathname;
+  // コメント機能が必要なページか確認
+  if (path.match(/^\/posts\/\d+\/comments$/)) { // posts/:id/comments の形式の場合のみ実行
+    // コメント表示の重複防止のため、一度コメント一覧を空に
+    $('.comments-list').empty();
+    // コメント一覧を取得して表示
+    axios.get(`/posts/${postId}/comments.json`)
+      .then((response) => {
+        const comments = response.data;
+        comments.forEach((comment) => {
+          $('.comments-list').append(
+            // コメントの投稿者名、内容を表示
+            `<div class="comments-container">
+              <div class="comment-author"><p>${comment.user.account_name}</p></div>
+              <div class="comment-body"><p>${comment.content}</p></div>
+            </div>`
+          );
+        });
       });
-    });
+  }
 
   // コメントを投稿
   $('.add-comment-button').on('click', () => {
