@@ -49,6 +49,8 @@ document.addEventListener('turbolinks:load', () => {
             </div>`
           )
           $('#comment_content').val('');
+          $('.comment-form-textarea').addClass('hidden');
+          $('.show-comment-form').removeClass('hidden');
         });
     };
   });
