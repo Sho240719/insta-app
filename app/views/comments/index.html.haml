@@ -1,7 +1,8 @@
 .container.comment-show{data: {post_id: @post.id}}
   .top-bar
     .top-left
-      = image_tag 'back-tab.png', class: 'back-icon'
+      = link_to back_link do
+        = image_tag 'back-tab.png', class: 'back-icon'
     .top-right
       %p Comment
   .comments-list
