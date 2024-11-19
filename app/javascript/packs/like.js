@@ -4,19 +4,19 @@ import { csrfToken } from 'rails-ujs';
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
-document.addEventListener('DOMContentLoaded', () => {
 
-  // いいねの表示を表示、切り替える関数
-  function handleHeartDisplay(postId, hasLiked) {
-    if (hasLiked) {
-      $(`.active-heart[data-post-id=${postId}]`).removeClass('hidden');
-      $(`.inactive-heart[data-post-id=${postId}]`).addClass('hidden');
-    } else {
-      $(`.inactive-heart[data-post-id=${postId}]`).removeClass('hidden');
-      $(`.active-heart[data-post-id=${postId}]`).addClass('hidden');
-    }
+// いいねの表示を表示、切り替える関数
+function handleHeartDisplay(postId, hasLiked) {
+  if (hasLiked) {
+    $(`.active-heart[data-post-id=${postId}]`).removeClass('hidden');
+    $(`.inactive-heart[data-post-id=${postId}]`).addClass('hidden');
+  } else {
+    $(`.inactive-heart[data-post-id=${postId}]`).removeClass('hidden');
+    $(`.active-heart[data-post-id=${postId}]`).addClass('hidden');
   }
+}
 
+document.addEventListener('turbolinks:load', () => {
   // hasLiked(いいねされているかどうか)を取得し、handleHeartDisplay(いいね表示の切り替え関数)を呼び出す
   $('.post-show').each(function() {
     const postId = $(this).data('post-id');
@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(e);
       });
   })
+});
 
+document.addEventListener('DOMContentLoaded', () => {
   // いいねをする
   $(document).on('click', '.inactive-heart', function () {
     const postId = $(this).data('post-id');
