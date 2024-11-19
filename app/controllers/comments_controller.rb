@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save!
 
-    render json: @comment
+    render json: @comment.as_json(include: { user: { only: [:id, :account_name] } })
   end
 
   private

@@ -42,8 +42,11 @@ document.addEventListener('turbolinks:load', () => {
         .then((response) => {
           const comment = response.data;
           $('.comments-list').append(
-            // コメントのみ表示
-            `<div class="comment-body"><p>${comment.content}</p></div>`
+            // コメントの投稿者名、内容を追加
+            `<div class="comments-container">
+              <div class="comment-author"><p>${comment.user.account_name}</p></div>
+              <div class="comment-body"><p>${comment.content}</p></div>
+            </div>`
           )
           $('#comment_content').val('');
         });
