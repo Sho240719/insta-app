@@ -20,7 +20,7 @@ document.addEventListener('turbolinks:load', () => {
         const comments = response.data;
         comments.forEach((comment) => {
           $('.comments-list').append(
-            // コメントの投稿者名、内容を表示
+            // コメントを表示
             `<div class="comment-container">
               <img src="${comment.user.profile.avatar_url}" class="comment-account-icon">
               <div>
@@ -45,10 +45,13 @@ document.addEventListener('turbolinks:load', () => {
         .then((response) => {
           const comment = response.data;
           $('.comments-list').append(
-            // コメントの投稿者名、内容を追加
-            `<div class="comments-container">
-              <div class="comment-author"><p>${comment.user.account_name}</p></div>
-              <div class="comment-body"><p>${comment.content}</p></div>
+            // コメントを追加
+            `<div class="comment-container">
+              <img src="${comment.user.profile.avatar_url}" class="comment-account-icon">
+              <div>
+                <p class="comment-author">${comment.user.account_name}</p>
+                <p class="comment-body">${comment.content}</p>
+              </div>
             </div>`
           )
           $('#comment_content').val('');
