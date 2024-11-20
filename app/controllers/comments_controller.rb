@@ -3,12 +3,24 @@ class CommentsController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
-    comments = @post.comments.includes(:user)
+    comments = @post.comments.includes(user: { profile: :avatar_attachment })
 
     respond_to do |format|
       format.html # デフォルトでindex.html.hamlを描画
       format.json {
-        render json: comments.as_json(include: { user: { only: [:id, :account_name] } })
+        render json: comments.as_json(
+          include: {
+            user: {
+              only: [:id, :account_name],
+              include: {
+                profile: {
+                  only: [:id],
+                  methods: [:avatar_url]
+                }
+              }
+            }
+          }
+        )
       } # JSONリクエストに応答
     end
   end

@@ -22,6 +22,7 @@ document.addEventListener('turbolinks:load', () => {
           $('.comments-list').append(
             // コメントの投稿者名、内容を表示
             `<div class="comments-container">
+              <img src="${comment.user.profile.avatar_url}" class="comment-account-icon">
               <div class="comment-author"><p>${comment.user.account_name}</p></div>
               <div class="comment-body"><p>${comment.content}</p></div>
             </div>`
