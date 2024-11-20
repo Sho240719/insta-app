@@ -3,6 +3,11 @@
   padding: 0 35px;
 }
 
+.comment-container {
+  margin-bottom: 32px;
+  display: flex;
+}
+
 .comment-author {
   font-size: 16px;
   line-height: 24px;
@@ -12,7 +17,6 @@
 .comment-body {
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 32px;
   color: rgba(155, 155, 155, 1);
 }
 
