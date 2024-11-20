@@ -1,0 +1,4 @@
+%p #{@recipient_user.account_name} さんへ
+%p #(@sender_user) さんからメッセージが届いています。
+
+= link_to 'プロフィールを確認する', profile_url(@sender_user)
