@@ -1,10 +1,14 @@
-@import 'normalize';
+@import 'buttons';
+@import 'comment';
 @import 'devise';
-@import 'header';
-@import 'profile';
-@import 'post';
 @import 'footer';
-@import 'button';
+@import 'header';
+@import 'icon';
+@import 'normalize';
+@import 'post';
+@import 'profile';
+@import 'top-bar';
+
 
 * {
   margin: 0;

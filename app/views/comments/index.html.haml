@@ -1,0 +1,16 @@
+.container.comment-show{data: {post_id: @post.id}}
+  .top-bar
+    .top-left
+      = link_to back_link do
+        = image_tag 'back-tab.png', class: 'back-icon'
+    .top-right
+      %p Comment
+  .comments-list
+
+  .comment-form
+    .btn-secondary.show-comment-form
+      コメントを追加
+    .comment-form-textarea.hidden
+      = text_area_tag :comment_content, nil, class: 'comment-textarea'
+      .btn-secondary.add-comment-button
+        コメントを追加

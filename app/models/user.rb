@@ -26,8 +26,10 @@ class User < ApplicationRecord
   validates :account_name, presence: true, uniqueness: true
 
   has_one :profile, dependent: :destroy
+
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def avatar_image
     if profile&.avatar&.attached?

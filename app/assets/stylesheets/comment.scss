@@ -1,0 +1,32 @@
+.comments-list {
+  margin-top: 52px;
+  padding: 0 35px;
+}
+
+.comment-container {
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.comment-author {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+
+.comment-body {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(155, 155, 155, 1);
+}
+
+.comment-input {
+  width: 343px;
+  margin-top: 90px;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 25px;
+}

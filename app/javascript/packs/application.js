@@ -23,4 +23,5 @@ import { csrfToken } from 'rails-ujs';
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
 import './profile';
-import './post';
+import './like';
+import './comment';

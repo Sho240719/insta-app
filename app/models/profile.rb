@@ -18,4 +18,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :avatar
+
+  def avatar_url
+    avatar.attached? ? Rails.application.routes.url_helpers.url_for(avatar) : 'default-avatar.png'
+  end
 end
