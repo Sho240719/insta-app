@@ -20,6 +20,6 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
 
   def avatar_url
-    avatar.attached? ? Rails.application.routes.url_helpers.url_for(avatar) : nil
+    avatar.attached? ? Rails.application.routes.url_helpers.url_for(avatar) : 'default-avatar.png'
   end
 end
