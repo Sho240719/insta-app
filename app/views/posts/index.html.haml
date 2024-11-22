@@ -1,6 +1,9 @@
 .container
-  = link_to new_post_path do
-    = image_tag 'photo-camera.png', class: 'photo-img'
+  .action-menu
+    = link_to new_post_path do
+      = image_tag 'photo-camera.png', class: 'photo-img'
+    .logout
+      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout-button'
 
   - @posts.each do |post|
     .post-wrapper.post-show{data: {post_id: post.id}}
