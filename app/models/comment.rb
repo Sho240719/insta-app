@@ -22,4 +22,20 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
+
+  after_create :send_email
+
+  private
+  def send_email
+    mentioned_users.each do |mentioned_user|
+      MentionMailer.send_mention_notification(mentioned_user, user).deliver_now
+    end
+  end
+
+  def mentioned_users
+    return [] if content.blank? # コメントがからの場合、空の配列を返す
+
+    usernames = content.scan(/@([\w一-龥ぁ-んァ-ヶー]+)/).flatten.map(&:downcase) # ユーザ名を小文字に変換
+    User.where('LOWER(account_name) IN (?)', usernames) # 大文字小文字を無視して検索
+  end
 end
