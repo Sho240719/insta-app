@@ -2,8 +2,11 @@
   .action-menu
     = link_to new_post_path do
       = image_tag 'photo-camera.png', class: 'photo-img'
-    .logout
-      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout-button'
+    .session
+      - if user_signed_in?
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'session-button'
+      - else
+        = link_to 'ログイン', new_user_session_path, class: 'session-button'
 
   - @posts.each do |post|
     .post-wrapper.post-show{data: {post_id: post.id}}
