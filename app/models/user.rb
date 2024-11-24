@@ -31,6 +31,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
+  has_many :followings, through: :following_relationships, source: :following
+
   def avatar_image
     if profile&.avatar&.attached?
       profile.avatar
@@ -41,5 +44,9 @@ class User < ApplicationRecord
 
   def has_liked?(post)
     likes.exists?(post_id: post.id)
+  end
+
+  def follow!(user)
+    following_relationships.create!(following_id: user.id)
   end
 end
