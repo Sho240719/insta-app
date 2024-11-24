@@ -1,0 +1,31 @@
+.container
+  .top-bar
+    .top-left
+      = link_to :back do
+        = image_tag 'back-tab.png', class: 'back-icon'
+    .top-right
+    - if user == current_user
+      = link_to 'メニュー', '#', class: 'sub-button'
+    - else
+      = link_to 'フォロー', '#', class: 'sub-button'
+  .top-wrapper
+    .account-img
+      = image_tag user.avatar_image, class: 'account-icon'
+      - if user == current_user
+        %input.file-upload.hidden{type: "file"}
+    .account-name
+      = user.account_name
+    .account-info
+      .info-wrapper
+        %P.info-counts 44
+        %P.info Posts
+      .info-wrapper
+        %P.info-counts 110
+        %P.info Followers
+      .info-wrapper
+        %P.info-counts 44
+        %P.info Followings
+  .content-wrapper
+    = image_tag 'Group 8.png', class: 'content-img'
+%footer.footer
+  = image_tag 'Home Indicator.png'
