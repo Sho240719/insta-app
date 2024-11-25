@@ -5,9 +5,12 @@
         = image_tag 'back-tab.png', class: 'back-icon'
     .top-right
     - if user == current_user
-      = link_to 'メニュー', '#', class: 'sub-button'
+      = link_to 'プロフィールを編集', '#', class: 'sub-button'
     - else
-      = link_to 'フォロー', '#', class: 'sub-button'
+      - if current_user&.has_followed(user)
+        = link_to 'フォローをはずす', '#', class: 'sub-button'
+      - else
+        = link_to 'フォローする', account_follows_path(user), data: {method: 'post'}, class: 'sub-button'
   .top-wrapper
     .account-img
       = image_tag user.avatar_image, class: 'account-icon'
