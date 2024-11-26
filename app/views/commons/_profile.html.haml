@@ -11,23 +11,25 @@
         = link_to 'フォローをはずす', account_unfollows_path(user), data: {method: 'post'}, class: 'sub-button'
       - else
         = link_to 'フォローする', account_follows_path(user), data: {method: 'post'}, class: 'sub-button'
-  .top-wrapper
-    .account-img
-      = image_tag user.avatar_image, class: 'account-icon'
+  .user-info
+    .user-img
+      = image_tag user.avatar_image, class: 'user-icon'
       - if user == current_user
         %input.file-upload.hidden{type: "file"}
-    .account-name
+    .user-name
       = user.account_name
-    .account-info
-      .info-wrapper
-        %P.info-counts 44
-        %P.info Posts
-      .info-wrapper
-        %P.info-counts 110
-        %P.info Followers
-      .info-wrapper
-        %P.info-counts 44
-        %P.info Followings
+    .user-stats
+      .stat-item
+        %span.stat-value 44
+        %span.stat-label Posts
+      .stat-item
+        %span.stat-value
+          = user.followings.count
+        %span.stat-label フォロー中
+      .stat-item
+        %span.stat-value
+          = user.followers.count
+        %span.stat-label フォロワー
   .content-wrapper
     = image_tag 'Group 8.png', class: 'content-img'
 %footer.footer

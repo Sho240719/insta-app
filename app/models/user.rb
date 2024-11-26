@@ -66,7 +66,7 @@ class User < ApplicationRecord
 
   private
   def get_user_id(user)
-    if user.is_a(User)
+    if user.is_a?(User)
       user.id
     else
       user
