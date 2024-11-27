@@ -25,3 +25,4 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 import './profile';
 import './like';
 import './comment';
+import './follow';
