@@ -18,18 +18,29 @@ function handleFollowDisplay(accountId, hasFollowed) {
 // 現在のページURLを取得
 const path = window.location.pathname;
 
-if (path.match(/^\/accounts\/\d+$/)) {
-  document.addEventListener('turbolinks:load', () => {
-    const accountId = $('.account-show').data('account-id');
-    //フォロー状態を取得
+document.addEventListener('turbolinks:load', () => {
+  const accountId = $('.account-show').data('account-id');
+
+  //フォロー状態を取得し、フォローボタンを表示
+  if (path.match(/^\/accounts\/\d+$/)) {
     axios.get(`/accounts/${accountId}.json`)
-      .then((response) => {
-        const hasFollowed = response.data.hasFollowed;
-        handleFollowDisplay(accountId, hasFollowed)
-      })
-      .catch((error) => {
-        window.alert('フォロー状態の取得に失敗しました');
-        console.log(error);
-      });
+    .then((response) => {
+      const hasFollowed = response.data.hasFollowed;
+      handleFollowDisplay(accountId, hasFollowed);
+    })
+    .catch((error) => {
+      window.alert('フォロー状態の取得に失敗しました');
+      console.log(error);
+    });
+  }
+
+  // フォローする
+  $('.inactive-follow').on('click', () => {
+    axios.post(`/accounts/${accountId}/follows`)
+    .then((response) => {
+      if (response.data.status === 'ok') {
+        handleFollowDisplay(accountId, true);
+      }
+    })
   });
-}
+});
