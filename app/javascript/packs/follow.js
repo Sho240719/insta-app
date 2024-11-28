@@ -15,6 +15,11 @@ function handleFollowDisplay(accountId, hasFollowed) {
   }
 }
 
+// フォロワー数に変更があったときに更新
+function updateFollowersCount(count) {
+  $('.update-followers-count').text(count)
+}
+
 // 現在のページURLを取得
 const path = window.location.pathname;
 
@@ -40,6 +45,7 @@ document.addEventListener('turbolinks:load', () => {
     .then((response) => {
       if (response.data.status === 'ok') {
         handleFollowDisplay(accountId, true);
+        updateFollowersCount(response.data.followersCount)
       }
     })
   });
@@ -50,6 +56,7 @@ document.addEventListener('turbolinks:load', () => {
       .then((response) => {
         if (response.data.status === 'ok') {
           handleFollowDisplay(accountId, false)
+          updateFollowersCount(response.data.unfollowersCount)
         }
       })
   });
