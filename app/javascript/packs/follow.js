@@ -43,4 +43,14 @@ document.addEventListener('turbolinks:load', () => {
       }
     })
   });
+
+  // フォローをはずす
+  $('.active-follow').on('click', () => {
+    axios.post(`/accounts/${accountId}/unfollows`)
+      .then((response) => {
+        if (response.data.status === 'ok') {
+          handleFollowDisplay(accountId, false)
+        }
+      })
+  });
 });
