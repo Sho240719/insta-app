@@ -22,9 +22,9 @@ document.addEventListener('turbolinks:load', () => {
           $('.comments-list').append(
             // コメントを表示
             `<div class="comment-container">
-              <img src="${comment.user.profile.avatar_url}" class="comment-account-icon">
+              <img src="${comment.user.profile.avatar_url}" class="shared-user-icon">
               <div>
-                <p class="comment-author">${comment.user.account_name}</p>
+                <p class="shared-author">${comment.user.account_name}</p>
                 <p class="comment-body">${comment.content}</p>
               </div>
             </div>`

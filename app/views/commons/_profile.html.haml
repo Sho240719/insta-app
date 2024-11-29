@@ -17,7 +17,7 @@
 
   .user-info
     .user-img
-      = image_tag user.avatar_image, class: 'user-icon'
+      = image_tag user.avatar_image, class: 'profile-user-icon'
       - if user == current_user
         %input.file-upload.hidden{type: "file"}
     .user-name
@@ -26,14 +26,16 @@
       .stat-item
         %span.stat-value 44
         %span.stat-label Posts
-      .stat-item
-        %span.stat-value
-          = user.followings.count
-        %span.stat-label フォロー中
-      .stat-item
-        %span.stat-value.update-followers-count
-          = user.followers.count
-        %span.stat-label フォロワー
+      = link_to account_followings_path(user) do
+        .stat-item
+          %span.stat-value
+            = user.followings.count
+          %span.stat-label フォロー中
+      = link_to account_followers_path(user) do
+        .stat-item
+          %span.stat-value.update-followers-count
+            = user.followers.count
+          %span.stat-label フォロワー
   .content-wrapper
     = image_tag 'Group 8.png', class: 'content-img'
 %footer.footer

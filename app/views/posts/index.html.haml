@@ -13,7 +13,7 @@
       .post-info
         .post-img-info
           = link_to account_path(post.user) do
-            = image_tag post.user.avatar_image, class: 'post-account-img'
+            = image_tag post.user.avatar_image, class: 'post-user-icon'
           - if user_signed_in? && post.user_id === current_user.id
             .online-mark
         .post-text-info

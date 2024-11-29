@@ -1,0 +1,8 @@
+.container
+  .top-bar.top-bar-follow
+    .top-left
+      = link_to back_link do
+        = image_tag 'back-tab.png', class: 'back-icon'
+    .top-right
+      %p フォロー中
+  = render 'commons/follow', users: @followings
