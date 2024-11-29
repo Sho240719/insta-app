@@ -1,7 +1,12 @@
 .top-bar {
-  width: 215px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.top-bar-follow {
+  width: 214px;
+  margin-bottom: 50px;
 }
 
 .back-icon {

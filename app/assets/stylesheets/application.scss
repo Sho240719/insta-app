@@ -8,6 +8,7 @@
 @import 'post';
 @import 'profile';
 @import 'top-bar';
+@import 'follow';
 
 
 * {
@@ -79,4 +80,10 @@ textarea::placeholder {
 
 .hidden {
   display: none;
+}
+
+.shared-author {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 5px;
 }

@@ -1,0 +1,8 @@
+- if users.exists?
+  - users.each do |user|
+    = link_to account_path(user) do
+      .user-list
+        = image_tag user.avatar_image, class: 'shared-user-icon'
+        %p.shared-author= user.account_name
+- else
+  %h2 友達を作りましょう

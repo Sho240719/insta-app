@@ -4,15 +4,16 @@
       = image_tag 'photo-camera.png', class: 'photo-img'
     .session
       - if user_signed_in?
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'session-button'
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'sub-button'
       - else
-        = link_to 'ログイン', new_user_session_path, class: 'session-button'
+        = link_to 'ログイン', new_user_session_path, class: 'sub-button'
 
   - @posts.each do |post|
     .post-wrapper.post-show{data: {post_id: post.id}}
       .post-info
         .post-img-info
-          = image_tag post.user.avatar_image, class: 'post-account-img'
+          = link_to account_path(post.user) do
+            = image_tag post.user.avatar_image, class: 'post-user-icon'
           - if user_signed_in? && post.user_id === current_user.id
             .online-mark
         .post-text-info
