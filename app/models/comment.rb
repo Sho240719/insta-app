@@ -28,7 +28,7 @@ class Comment < ApplicationRecord
   private
   def send_email
     mentioned_users.each do |mentioned_user|
-      MentionMailer.send_mention_notification(mentioned_user, user).deliver_now
+      MentionMailer.send_mention_notification(mentioned_user, user).deliver_later
     end
   end
 
