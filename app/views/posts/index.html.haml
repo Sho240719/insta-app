@@ -11,7 +11,7 @@
     .tabs-item.active
       = link_to '新着記事', root_path
     .tabs-item
-      =link_to 'タイムライン', '#'
+      =link_to 'タイムライン', timeline_path
 
   - @posts.each do |post|
     .post-wrapper.post-show{data: {post_id: post.id}}
