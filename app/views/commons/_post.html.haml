@@ -8,9 +8,9 @@
       - else
         = link_to 'ログイン', new_user_session_path, class: 'sub-button'
   .tabs
-    .tabs-item{class: "#{'active' if current_page?(root_path)}"}
+    .tabs-item{class: "#{add_active_class(root_path)}"}
       = link_to '新着記事', root_path
-    .tabs-item{class: "#{'active' if current_page?(timeline_path)}"}
+    .tabs-item{class: "#{add_active_class(timeline_path)}"}
       =link_to 'タイムライン', timeline_path
 
   - posts.each do |post|
