@@ -25,7 +25,6 @@ gem 'active_model_serializers'
 gem 'hamlit'
 gem 'devise'
 gem 'sidekiq'
-gem 'net-http'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
