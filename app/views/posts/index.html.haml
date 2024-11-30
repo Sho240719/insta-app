@@ -7,6 +7,11 @@
         = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'sub-button'
       - else
         = link_to 'ログイン', new_user_session_path, class: 'sub-button'
+  .tabs
+    .tabs-item.active
+      = link_to '新着記事', root_path
+    .tabs-item
+      =link_to 'タイムライン', '#'
 
   - @posts.each do |post|
     .post-wrapper.post-show{data: {post_id: post.id}}
