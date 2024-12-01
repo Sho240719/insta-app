@@ -9,6 +9,7 @@
 @import 'profile';
 @import 'top-bar';
 @import 'follow';
+@import 'tabs';
 
 
 * {
@@ -27,6 +28,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #000;
 }
 
 input {

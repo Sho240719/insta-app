@@ -1,0 +1,49 @@
+.container
+  .action-menu
+    = link_to new_post_path do
+      = image_tag 'photo-camera.png', class: 'photo-img'
+    .session
+      - if user_signed_in?
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'sub-button'
+      - else
+        = link_to 'ログイン', new_user_session_path, class: 'sub-button'
+  .tabs
+    .tabs-item{class: "#{add_active_class(root_path)}"}
+      = link_to '新着記事', root_path
+    .tabs-item{class: "#{add_active_class(timeline_path)}"}
+      =link_to 'タイムライン', timeline_path
+
+  - posts.each do |post|
+    .post-wrapper.post-show{data: {post_id: post.id}}
+      .post-info
+        .post-img-info
+          = link_to account_path(post.user) do
+            = image_tag post.user.avatar_image, class: 'post-user-icon'
+          - if user_signed_in? && post.user_id === current_user.id
+            .online-mark
+        .post-text-info
+          %p.post-name= post.user.account_name
+          %p.post-time= display_time(post.created_at)
+      .post-content
+        = post.content
+      .post-img
+        - if post.images.attached?
+          .post-img-left-wrapper
+            = image_tag post.images[0], class: 'post-img-left'
+          .post-img-right-wrapper
+            - 2.times do |i|
+              - if post.images[i + 1].present?
+                = image_tag post.images[i + 1], class: 'post-img-right'
+      - if user_signed_in?
+        .post-interaction
+          .post-like.hidden.active-heart{data: {post_id: post.id}}
+            = image_tag 'like-active.png'
+          .post-like.hidden.inactive-heart{data: {post_id: post.id}}
+            = image_tag 'like-inactive.png'
+          .post-comment
+            = link_to post_comments_path(post) do
+              = image_tag 'comment.png'
+          .post-share
+            = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
+              target: "_blank", rel: "noopener" do
+              = image_tag 'share.png'
