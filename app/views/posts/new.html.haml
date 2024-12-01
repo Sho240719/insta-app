@@ -6,8 +6,8 @@
     %p Post
 
   .post-form-user-info
-    = image_tag current_user.avatar_image, class: 'post-form-user-img'
-    .post-form-user-name
+    = image_tag current_user.avatar_image, class: 'shared-user-icon'
+    .shared-author
       = current_user.account_name
 
   .post-form
