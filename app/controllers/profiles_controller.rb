@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile
 
   def show
+    @posts = current_user.posts
   end
 
   def edit
