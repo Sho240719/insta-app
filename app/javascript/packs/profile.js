@@ -4,9 +4,9 @@ import { csrfToken } from 'rails-ujs';
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbolinks:load', () => { 
 // プロフィール画像を変更するコード
-  $('.account-icon').on('click', () => {
+  $('.profile-user-icon').on('click', () => {
     $('.file-upload').toggleClass('hidden')
   })
 

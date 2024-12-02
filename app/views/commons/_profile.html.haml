@@ -5,9 +5,7 @@
         = image_tag 'back-tab.png', class: 'back-icon'
     .top-right
     - if user_signed_in?
-      - if user == current_user
-        = link_to 'プロフィールを編集', '#', class: 'sub-button'
-      - else
+      - if user != current_user
         - if current_user.has_followed?(user)
           .sub-button.active-follow{data: {account_id: user.id}} フォローをはずす
           .sub-button.inactive-follow.hidden{data: {account_id: user.id}} フォローする
