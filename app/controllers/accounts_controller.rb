@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     if @user == current_user
@@ -6,6 +8,8 @@ class AccountsController < ApplicationController
     end
 
     follow_status = current_user&.has_followed?(@user)
+
+    @posts = @user.posts
 
     respond_to do |format|
       format.html
