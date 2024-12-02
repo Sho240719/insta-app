@@ -24,8 +24,9 @@
       = user.account_name
     .user-stats
       .stat-item
-        %span.stat-value 44
-        %span.stat-label Posts
+        %span.stat-value
+          = user.posts.count
+        %span.stat-label ポスト
       = link_to account_followings_path(user) do
         .stat-item
           %span.stat-value
