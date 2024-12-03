@@ -63,7 +63,7 @@
           .post-like.hidden.inactive-heart{data: {post_id: post.id}}
             = image_tag 'like-inactive.png'
           .post-comment
-            = link_to post_comments_path(post) do
+            = link_to api_comments_path(post) do
               = image_tag 'comment.png'
           .post-share
             = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
