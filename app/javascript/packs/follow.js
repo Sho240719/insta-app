@@ -28,7 +28,7 @@ document.addEventListener('turbolinks:load', () => {
 
   //フォロー状態を取得し、フォローボタンを表示
   if (path.match(/^\/accounts\/\d+$/)) {
-    axios.get(`/accounts/${accountId}.json`)
+    axios.get(`/api/accounts/${accountId}.json`)
     .then((response) => {
       const hasFollowed = response.data.hasFollowed;
       handleFollowDisplay(accountId, hasFollowed);
@@ -41,7 +41,7 @@ document.addEventListener('turbolinks:load', () => {
 
   // フォローする
   $('.inactive-follow').on('click', () => {
-    axios.post(`/accounts/${accountId}/follows`)
+    axios.post(`/api/accounts/${accountId}/follows`)
     .then((response) => {
       if (response.data.status === 'ok') {
         handleFollowDisplay(accountId, true);
@@ -52,7 +52,7 @@ document.addEventListener('turbolinks:load', () => {
 
   // フォローをはずす
   $('.active-follow').on('click', () => {
-    axios.post(`/accounts/${accountId}/unfollows`)
+    axios.post(`/api/accounts/${accountId}/unfollows`)
       .then((response) => {
         if (response.data.status === 'ok') {
           handleFollowDisplay(accountId, false)

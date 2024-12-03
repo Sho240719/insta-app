@@ -15,7 +15,7 @@ document.addEventListener('turbolinks:load', () => {
     // コメント表示の重複防止のため、一度コメント一覧を空に
     $('.comments-list').empty();
     // コメント一覧を取得して表示
-    axios.get(`/posts/${postId}/comments.json`)
+    axios.get(`/api/posts/${postId}/comments.json`)
       .then((response) => {
         const comments = response.data;
         comments.forEach((comment) => {
@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
     if (!content) {
       window.alert('コメントを入力してください');
     } else {
-      axios.post(`/posts/${postId}/comments`, {
+      axios.post(`/api/posts/${postId}/comments`, {
         comment: {content: content}
       })
         .then((response) => {
