@@ -18,6 +18,11 @@ function handleHeartDisplay(postId, hasLiked) {
 
 document.addEventListener('turbolinks:load', () => {
   // hasLiked(いいねされているかどうか)を取得し、handleHeartDisplay(いいね表示の切り替え関数)を呼び出す
+  // ユーザーがログインしていない場合、処理を中断
+  if (!window.isLoggedIn) {
+    return;
+  }
+
   $('.post-show').each(function() {
     const postId = $(this).data('post-id');
     axios.get(`/api/posts/${postId}/like`)
