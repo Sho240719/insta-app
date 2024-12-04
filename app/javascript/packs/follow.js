@@ -28,7 +28,7 @@ document.addEventListener('turbolinks:load', () => {
 
   //フォロー状態を取得し、フォローボタンを表示
   if (path.match(/^\/accounts\/\d+$/)) {
-    axios.get(`/api/accounts/${accountId}.json`)
+    axios.get(`/accounts/${accountId}.json`)
     .then((response) => {
       const hasFollowed = response.data.hasFollowed;
       handleFollowDisplay(accountId, hasFollowed);
