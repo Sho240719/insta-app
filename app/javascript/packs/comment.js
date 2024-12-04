@@ -11,7 +11,7 @@ document.addEventListener('turbolinks:load', () => {
   // 現在のページURLを取得
   const path = window.location.pathname;
   // コメント機能が必要なページか確認
-  if (path.match(/^\/posts\/\d+\/comments$/)) { // posts/:id/comments の形式の場合のみ実行
+  if (path.match(/^\/api\/posts\/\d+\/comments$/)) { // posts/:id/comments の形式の場合のみ実行
     // コメント表示の重複防止のため、一度コメント一覧を空に
     $('.comments-list').empty();
     // コメント一覧を取得して表示
@@ -30,6 +30,10 @@ document.addEventListener('turbolinks:load', () => {
             </div>`
           );
         });
+      })
+      .catch((e) => {
+        window.alert('コメントを取得できませんでした');
+        console.log(e);
       });
   }
 
