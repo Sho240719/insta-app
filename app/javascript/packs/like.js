@@ -17,19 +17,22 @@ function handleHeartDisplay(postId, hasLiked) {
 }
 
 document.addEventListener('turbolinks:load', () => {
-  // hasLiked(いいねされているかどうか)を取得し、handleHeartDisplay(いいね表示の切り替え関数)を呼び出す
-  $('.post-show').each(function() {
-    const postId = $(this).data('post-id');
-    axios.get(`/api/posts/${postId}/like`)
-      .then((response) => {
-        const hasLiked = response.data.hasLiked;
-        handleHeartDisplay(postId, hasLiked);
-      })
-      .catch((e) => {
-        window.alert('いいね状態を取得できませんでした');
-        console.log(e);
-      });
-  })
+  // ユーザーがログインしていない場合、処理を中断
+  if (window.isLoggedIn) {
+    // hasLiked(いいねされているかどうか)を取得し、handleHeartDisplay(いいね表示の切り替え関数)を呼び出す
+    $('.post-show').each(function() {
+      const postId = $(this).data('post-id');
+      axios.get(`/api/posts/${postId}/like`)
+        .then((response) => {
+          const hasLiked = response.data.hasLiked;
+          handleHeartDisplay(postId, hasLiked);
+        })
+        .catch((e) => {
+          window.alert('いいね状態を取得できませんでした');
+          console.log(e);
+        });
+    });
+  }
 });
 
 document.addEventListener('DOMContentLoaded', () => {

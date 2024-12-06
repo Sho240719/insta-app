@@ -47,3 +47,5 @@
             = link_to "https://twitter.com/intent/tweet?text=#{URI.encode(post.content)}&url=#{posts_url(post)}",
               target: "_blank", rel: "noopener" do
               = image_tag 'share.png'
+:javascript
+  window.isLoggedIn = #{user_signed_in?.to_json};
