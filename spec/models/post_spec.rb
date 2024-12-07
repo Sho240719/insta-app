@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let!(:user) do
-    User.create!({
-      account_name: Faker::Name.name,
-      email: 'test@example.com',
-      password: 'password'
-    })
-  end
+  let!(:user) { create(:user) }
 
   context '内容が入力されている場合' do
     let!(:post) do
