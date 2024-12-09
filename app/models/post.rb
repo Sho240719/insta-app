@@ -22,4 +22,7 @@ class Post < ApplicationRecord
   has_many_attached :images
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  validates :content, presence: true, uniqueness: true
+  validates :content, length: { minimum: 2 }
 end

@@ -23,6 +23,9 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
 
+  validates :content, presence: true
+  validates :content, length: { maximum: 20 }
+
   after_create :send_email
 
   private
