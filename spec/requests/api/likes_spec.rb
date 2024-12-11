@@ -24,4 +24,18 @@ RSpec.describe "Api::Likes", type: :request do
       end
     end
   end
+
+  describe "POST /api/likes" do
+    before do
+      sign_in user
+    end
+
+    it 'いいねが保存でき、200ステータスが返ってくる' do
+      expect {
+        post api_like_path(post_id: test_post.id)
+      }.to change{ Like.count }.by(1)
+
+      expect(response).to have_http_status(200)
+    end
+  end
 end
