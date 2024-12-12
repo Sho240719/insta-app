@@ -7,7 +7,7 @@ RSpec.describe 'Post', type: :system do
   it 'ポスト一覧が表示される' do
     visit root_path
     posts.each do |post|
-      expect(page).to have_content(post.content)
+      expect(page).to have_css('.post-content', text: post.content)
     end
   end
 end
