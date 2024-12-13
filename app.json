@@ -1,0 +1,16 @@
+{
+  "name": "sho-insta-app",
+  "description": "This is instaapp",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/Sho240719/insta-app",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}

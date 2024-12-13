@@ -25,6 +25,7 @@ gem 'active_model_serializers'
 gem 'hamlit'
 gem 'devise'
 gem 'sidekiq'
+gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
