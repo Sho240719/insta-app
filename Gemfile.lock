@@ -135,7 +135,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.0)
+    ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.3.0)
@@ -276,7 +276,6 @@ GEM
     ruby_parser (3.21.1)
       racc (~> 1.5)
       sexp_processor (~> 4.16)
-    rubygems-update (3.3.22)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -362,6 +361,7 @@ DEPENDENCIES
   erb2haml
   factory_bot_rails
   faker
+  ffi (~> 1.15.5)
   hamlit
   jbuilder (~> 2.7)
   letter_opener
@@ -372,7 +372,6 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.6, >= 6.0.6.1)
   rspec-rails
-  rubygems-update (~> 3.3.22)
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq
