@@ -20,6 +20,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_create :build_default_profile
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -71,5 +73,9 @@ class User < ApplicationRecord
     else
       user
     end
+  end
+
+  def build_default_profile
+    create_profile unless profile
   end
 end
