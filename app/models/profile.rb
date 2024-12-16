@@ -20,6 +20,10 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
 
   def avatar_url
-    avatar.attached? ? Rails.application.routes.url_helpers.url_for(avatar) : 'default-avatar.png'
+    if avatar.attached?
+      Rails.application.routes.url_helpers.url_for(avatar)
+    else
+      ActionController::Base.helpers.asset_path('default-avatar.png')
+    end
   end
 end
