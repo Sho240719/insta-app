@@ -2,7 +2,7 @@
   "name": "insta_app",
   "private": true,
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   },
   "dependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",
@@ -12,6 +12,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.4",
     "axios": "^1.7.7",
+    "compression-webpack-plugin": "^11.1.0",
     "jquery": "^3.7.1",
     "rails-ujs": "^5.2.8-1",
     "turbolinks": "^5.2.0"
